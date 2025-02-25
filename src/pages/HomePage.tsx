@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function HomePage() {
   return (
     <>
@@ -20,9 +22,9 @@ function HomePage() {
                 goals. Take the next step in your career with ease!
               </h2>
             </div>
-            <button className="border-2 border-accent bg-accent cursor-pointer font-semibold text-sm px-4 py-2 rounded-lg active:scale-95 hover:scale-105 transition-transform duration-200 w-full sm:max-w-[500px] lg:w-[200px]">
+            <Link className="border-2 border-accent bg-accent cursor-pointer font-semibold text-sm px-4 py-2 rounded-lg active:scale-95 hover:scale-105 transition-transform duration-200 w-full sm:max-w-[500px] lg:w-[200px]" to={"/auth/register"}>
               Pre-register now
-            </button>
+            </Link>
           </div>
           <img
             src="../images/Hero.png"
