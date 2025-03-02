@@ -1,158 +1,86 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; // Ensure correct import
 
 export default function Register() {
-  return (
-    <div style={styles.container}>
-      <div style={styles.registerBox}>
-        {/* Left side - Image */}
-        <div style={styles.imageSection}>
-          <img
-            src="public/images/Intern1.png" // Adjust this if needed
-            alt="Intern at work"
-            style={styles.image}
-          />
-        </div>
 
-        {/* Right side - Form */}
-        <div style={styles.formSection}>
-          <h2 style={styles.logo}>Internnook</h2>
-          <p style={styles.welcomeText}>
-            Welcome! Please provide the following details to complete your account.
+  const handleRegister = () => {
+    console.log("Register button clicked!");
+    alert("Register na ngani");
+  };
+
+  return (
+    <div className="flex flex-col md:flex-row h-screen w-screen">
+      {/* Left Side - Image */}
+      <div className="hidden lg:flex w-1/2 items-center justify-center bg-gray-100">
+        <img
+          src="/images/signupimg.png" // Ensure correct path
+          alt="Interns at work"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Right Side - Register Form */}
+      <div className="w-full h-full lg:w-1/2 flex items-center justify-center bg-blue-50 p-4">
+        <div className="bg-white p-8 md:p-10 rounded-lg shadow-lg w-full max-w-md">
+          <h2 className="text-3xl font-bold text-center text-blue-600">Internnook</h2>
+          <p className="text-center text-gray-600 mb-5">
+            Welcome! Please provide the following details to complete your account
           </p>
 
-          <form style={styles.registerForm}>
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Email</label>
-              <input type="email" placeholder="Email" style={styles.inputField} />
+          <form className="space-y-4">
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full p-3 border rounded-md"
+            />
+            <div className="relative">
+              <input
+                type="password"
+                placeholder="Set password"
+                className="w-full p-3 border rounded-md pr-10"
+              />
+              <span className="absolute right-3 top-3 cursor-pointer">👁️</span>
             </div>
+            
+            {/* 🔹 Invite Code Input */}
+            <input
+              type="text"
+              placeholder="Invite Code"
+              className="w-full p-3 border rounded-md"
+            />
 
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Password</label>
-              <input type="password" placeholder="Set password" style={styles.inputField} />
-            </div>
+            {/* 🔹 Role Selection Dropdown */}
+            <select className="w-full p-3 border rounded-md">
+              <option value="">Role</option>
+              <option value="intern">Intern</option>
+              <option value="mentor">Mentor</option>
+              <option value="admin">Admin</option>
+            </select>
 
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Invite Code</label>
-              <input type="text" placeholder="Invite Code" style={styles.inputField} />
-            </div>
-
-            <div style={styles.formGroup}>
-              <label style={styles.label}>Role</label>
-              <select style={styles.inputField}>
-                <option value="">Select Role</option>
-                <option value="intern">Intern</option>
-                <option value="mentor">Mentor</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
-
-            <button style={styles.submitButton}>Create Account</button>
+            <button
+              type="button"
+              className="w-full bg-blue-600 text-white p-3 rounded-md"
+              onClick={handleRegister}
+            >
+              Create Account
+            </button>
           </form>
 
-          <div style={styles.divider}>Or sign up with</div>
+          <div className="text-center my-4">Or sign up with</div>
 
-          <button style={styles.googleButton}>
+          <button className="w-full flex items-center justify-center border p-3 rounded-md">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
               alt="Google"
-              style={styles.googleIcon}
+              className="w-5 h-5 mr-2"
             />
-            <span>Sign up with Google</span>
+            Sign up with Google
           </button>
 
-          <p style={styles.loginText}>
-            Already have an account?{" "}
-            <Link to="/auth/login" style={styles.loginLink}>Log in</Link>
+          <p className="text-center mt-4 text-gray-600">
+            Already have an account? <Link to="/auth/login" className="text-blue-500">Log in</Link>
           </p>
         </div>
       </div>
     </div>
   );
 }
-
-// Styles Object
-const styles = {
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-    backgroundColor: "#f4f4f4",
-  },
-  registerBox: {
-    display: "flex",
-    width: "900px",
-    height: "600px",
-    background: "white",
-    borderRadius: "10px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-    overflow: "hidden",
-  },
-  imageSection: {
-    width: "40%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#1a237e",
-    position: "relative",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  formSection: {
-    width: "60%",
-    padding: "40px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  registerForm: {
-    width: "100%",
-  },
-  formGroup: {
-    marginBottom: "15px",
-  },
-  label: {
-    fontWeight: "bold",
-    display: "block",
-    marginBottom: "5px",
-  },
-  inputField: {
-    width: "100%",
-    padding: "10px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-  },
-  submitButton: {
-    width: "100%",
-    padding: "10px",
-    backgroundColor: "#1a237e",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-  googleButton: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
-    border: "1px solid #ccc",
-    padding: "10px",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-  googleIcon: {
-    width: "20px",
-    height: "20px",
-    marginRight: "10px",
-  },
-  loginText: {
-    marginTop: "10px",
-    textAlign: "center",
-  },
-};
-

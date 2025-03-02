@@ -1,11 +1,11 @@
 import { Outlet } from "react-router";
 
-function LoginPage() {
+export default function Login() {
     return (
         <>
-            <div className="flex h-screen  justify-center items-center  bg-green-400 h-fit">
-                <p>Internook</p>
+            <div className="flex h-screen  w-screen">
              <Outlet/>
+             <div>hello</div>
             </div>
         </>
     )
