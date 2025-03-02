@@ -14,13 +14,13 @@ const routes = createBrowserRouter([
   {
     path: "/auth",
     element: <LoginPage/>,
-    children: [ {path: "/auth/register", element: <Register/>}, {path: "/auth/login", element: <LoginPage/>(
+    children: [ {path: "/auth/register", element: <Register/>}, {path: "/auth/login", element: (
       <div>
-           {/* <div className="bg-red-500 flex h-28 flex-col justify-content-center w-[30%] align-items-center border-3 rounded-lg">
+           <div className="bg-red-500 flex h-28 flex-col justify-content-center w-[30%] align-items-center border-3 rounded-lg">
                     <input type="text" placeholder="Username" />
                     <input type="password" placeholder="Password" />
                     <button>Login</button>
-                </div>   */}
+                </div>  
      </div>
     )}]
   }

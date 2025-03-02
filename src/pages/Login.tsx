@@ -5,10 +5,10 @@ export default function Login() {
         <>
             <div className="flex h-screen  w-screen">
              <Outlet/>
-             <div>hello</div>
+             
             </div>
         </>
     )
 }
 
-export default LoginPage;
+// export default LoginPage;
