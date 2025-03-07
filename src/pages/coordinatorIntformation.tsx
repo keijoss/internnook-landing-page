@@ -1,41 +1,43 @@
 import { useState } from "react";
 
-export default function StudentInformation() {
+export default function CoordinatorInformation() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    schoolName: "", // Default selection
+    schoolName: "Naga College Foundation", // Default selection
     department: "",
-    inviteCode: "",
+    bio: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    alert("Student information submitted!");
+    console.log("Coordinator Data:", formData);
+    alert("Coordinator account setup completed!");
   };
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-screen">
       {/* Left Side - Image */}
-      <div className="hidden md:flex w-1/2 items-center justify-center bg-gray-100">
+      <div className="hidden md:flex w-1/2">
         <img
-          src="/images/signupimg.png" // Change this to the correct image path
-          alt="Students collaborating"
+          src="/images/signupimg.png"
+          alt="Team Collaboration"
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* Right Side - Form */}
       <div className="w-full md:w-1/2 flex items-center justify-center bg-blue-50 p-6">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-          <h2 className="text-2xl font-bold text-blue-800 mb-4">Student Account Set Up</h2>
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+          <h2 className="text-3xl font-bold text-blue-700 text-center">
+            Coordinator Account Set Up
+          </h2>
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4 mt-5" onSubmit={handleSubmit}>
             <div>
               <label className="block text-gray-700">First Name</label>
               <input
@@ -45,7 +47,6 @@ export default function StudentInformation() {
                 value={formData.firstName}
                 onChange={handleChange}
                 className="w-full p-3 border rounded-md"
-                required
               />
             </div>
 
@@ -58,7 +59,6 @@ export default function StudentInformation() {
                 value={formData.lastName}
                 onChange={handleChange}
                 className="w-full p-3 border rounded-md"
-                required
               />
             </div>
 
@@ -90,24 +90,18 @@ export default function StudentInformation() {
               </select>
             </div>
 
-
-            <div>
-              <label className="block text-gray-700">Invite Code</label>
-              <input
-                type="text"
-                name="inviteCode"
-                placeholder="Enter your Invite code"
-                value={formData.inviteCode}
+            {/* <div>
+              <label className="block text-gray-700">Bio</label>
+              <textarea
+                name="bio"
+                placeholder="Enter your bio"
+                value={formData.bio}
                 onChange={handleChange}
                 className="w-full p-3 border rounded-md"
-                required
               />
-            </div>
+            </div> */}
 
-            <button
-              type="submit"
-              className="w-full bg-blue-800 text-white p-3 rounded-md hover:bg-blue-900 transition"
-            >
+            <button type="submit" className="w-full bg-blue-700 text-white p-3 rounded-md">
               Submit
             </button>
           </form>

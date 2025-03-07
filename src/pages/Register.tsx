@@ -11,8 +11,10 @@ export default function Register() {
 
     if (role === "intern") {
       navigate("/student-information"); // Navigate to student form if "Intern" is selected
+    } else if (role === "coordinator") {
+      navigate("/coordinator-information"); // Navigate to coordinator form if "Coordinator" is selected
     } else {
-      navigate("/dashboard"); // Navigate to a different page for other roles
+      navigate("/dashboard"); // Navigate to a default dashboard for other roles
     }
   };
 
@@ -32,7 +34,7 @@ export default function Register() {
         <div className="bg-white p-8 md:p-10 rounded-lg shadow-lg w-full max-w-md">
           <h2 className="text-3xl font-bold text-center text-blue-600">Internnook</h2>
           <p className="text-center text-gray-600 mb-5">
-            Welcome! Please provide the following details to complete your account
+            Welcome! Please provide the following details to <span className="font-bold text-black">register</span> for an account.
           </p>
 
           <form className="space-y-4">
@@ -44,7 +46,7 @@ export default function Register() {
             </div>
 
             {/* 🔹 Invite Code Input */}
-            <input type="text" placeholder="Invite Code" className="w-full p-3 border rounded-md" />
+            {/* <input type="text" placeholder="Invite Code" className="w-full p-3 border rounded-md" /> */}
 
             {/* 🔹 Role Selection Dropdown */}
             <select 
@@ -54,7 +56,7 @@ export default function Register() {
             >
               <option value="">Select Role</option>
               <option value="intern">Intern</option>
-              <option value="mentor">Mentor</option>
+              <option value="coordinator">Coordinator</option>
               <option value="admin">Admin</option>
             </select>
 
