@@ -7,12 +7,15 @@ export default function Register() {
 
   const handleRegister = () => {
     console.log("Register button clicked!");
-    alert("Register na ngani");
+    alert("Account Register ");
+    
 
     if (role === "intern") {
       navigate("/student-information"); // Navigate to student form if "Intern" is selected
     } else if (role === "coordinator") {
       navigate("/coordinator-information"); // Navigate to coordinator form if "Coordinator" is selected
+    } else if (role === "company") {
+      navigate("/company-account-setup"); // Navigate to Company form if "Company" is selected
     } else {
       navigate("/dashboard"); // Navigate to a default dashboard for other roles
     }
@@ -45,9 +48,6 @@ export default function Register() {
               <span className="absolute right-3 top-3 cursor-pointer">👁️</span>
             </div>
 
-            {/* 🔹 Invite Code Input */}
-            {/* <input type="text" placeholder="Invite Code" className="w-full p-3 border rounded-md" /> */}
-
             {/* 🔹 Role Selection Dropdown */}
             <select 
               className="w-full p-3 border rounded-md"
@@ -57,7 +57,7 @@ export default function Register() {
               <option value="">Select Role</option>
               <option value="intern">Intern</option>
               <option value="coordinator">Coordinator</option>
-              <option value="admin">Admin</option>
+              <option value="company">Company</option> {/* Changed from "Admin" to "Company" */}
             </select>
 
             <button type="button" className="w-full bg-blue-600 text-white p-3 rounded-md" onClick={handleRegister}>

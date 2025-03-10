@@ -7,6 +7,7 @@ import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import StudentInformation from "./pages/studentInformation.tsx"; // ✅ Import Student Information Page
 import CoordinatorInformation from "./pages/coordinatorIntformation.tsx";
+import CompanyAccountSetup from "./pages/companyaccountsetup.tsx";   
 import Auth from "./pages/Auth.tsx";
 
 // Define Routes
@@ -32,6 +33,10 @@ const routes = createBrowserRouter([
   {
     path: "/coordinator-information",
     element: <CoordinatorInformation />,
+  },
+  {
+    path: "/company-account-setup",
+    element: <CompanyAccountSetup />,
   },
 ]);
 
